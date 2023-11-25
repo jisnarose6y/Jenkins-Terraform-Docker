@@ -133,7 +133,7 @@ resource "aws_security_group" "demosg" {
 }
 
 # Creating key pair
-resource "aws_key_pair" "demokey" {
+resource "aws_key_pair" "demokey1" {
   key_name   = "${var.key_name}"
   public_key = "${file(var.public_key)}"
 }
@@ -154,7 +154,7 @@ resource "aws_instance" "demoinstance1" {
   count= 1
   
   # SSH key that we have generated above for connection
-  key_name = "${aws_key_pair.demokey.id}"
+  key_name = "${aws_key_pair.demokey1.id}"
 
   # Attaching security group to our instance
   vpc_security_group_ids = ["${aws_security_group.demosg.id}"]
