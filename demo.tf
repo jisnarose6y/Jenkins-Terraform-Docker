@@ -3,7 +3,7 @@
       bucket = "terraform112455"
       key = "terraform.tfstate"
       region = "us-east-1"
-      dynamodb_table = "terraform"
+   #   dynamodb_table = "terraform"
     }
  }
 # Configure and downloading plugins for aws
