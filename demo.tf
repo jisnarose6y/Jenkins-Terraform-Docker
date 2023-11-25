@@ -1,3 +1,11 @@
+ terraform {
+    backend "s3" {
+      bucket = "terraform112455"
+      key = "terraform.tfstate"
+      region = "us-east-1"
+      dynamodb_table = "terraform"
+    }
+ }
 # Configure and downloading plugins for aws
 provider "aws" {
   #access_key = "${var.access_key}"
@@ -180,14 +188,7 @@ resource "aws_instance" "demoinstance1" {
     type = "ssh"
     host = self.public_ip
   }
-   terraform {
-    backend "s3" {
-      bucket = "terraform112455"
-      key = "terraform.tfstate"
-     region = "us-east-1"
-      dynamodb_table = "terraform"
-    }
- }
+  
   
   # Installing splunk & creating distributed indexer clustering on newly created instance
   provisioner "remote-exec" {
