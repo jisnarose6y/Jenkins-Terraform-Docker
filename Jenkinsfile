@@ -15,7 +15,7 @@ pipeline {
     stages {
          stage ('Terraform Init'){
             steps {
-            sh "export TF_VAR_aws_region='${env.aws_region}' && terraform init"
+            sh "export TF_VAR_aws_region='${env.aws_region}' && terraform init -reconfigure"
           }
        }
          stage ('Terraform Plan'){
